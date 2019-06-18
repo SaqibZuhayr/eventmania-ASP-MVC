@@ -1,0 +1,66 @@
+﻿@model WebProject.Models.Event
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<h3>Event Comments</h3>
+
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+    
+        <dt>
+            Event Name:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eventcategory)
+        </dd>
+        <dt>
+            Event Organizer:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.username)
+        </dd>
+        <dt>
+            Event Address:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eventvenue)
+            @Html.DisplayFor(model => model.eventcity)
+        </dd>
+        <dt>
+            Event Comments:
+        </dt>
+        <db>
+            
+        </db>
+        <dt>
+            
+        </dt>
+        <dt>
+        @foreach (var a in Model.Comments)
+        {
+            <dd>
+                @Html.DisplayFor(model => a.comment1)
+            </dd>
+        }
+        </dt>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">           
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+

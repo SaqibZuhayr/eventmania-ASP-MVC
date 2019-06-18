@@ -1,0 +1,50 @@
+﻿@model WebProject.Models.Admin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+<h2>Admin Login</h2>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.adminname, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.adminname, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.adminname)
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.adminpassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.adminpassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.adminpassword)
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                        <input type="reset" value="Reset" class="btn btn-default" />
+                    </div>
+                </div>
+                           }
+        </section>
+    </div>
+    
+</div>
+
+
+
+

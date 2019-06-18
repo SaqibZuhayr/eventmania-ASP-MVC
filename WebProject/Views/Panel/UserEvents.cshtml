@@ -1,0 +1,55 @@
+﻿@using WebProject.Models
+@model IEnumerable < WebProject.Models.Event>
+    
+@{
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+    <h4>User Events Details</h4>
+    <hr/>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Event Category</th>
+                <th>Event Address</th>
+                
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventcategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventvenue)
+                        @Html.DisplayFor(modelItem => item.eventcity)
+                    </td>
+                    
+                    
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }

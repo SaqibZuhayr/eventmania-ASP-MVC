@@ -1,0 +1,82 @@
+﻿@using WebProject.Models
+@model IEnumerable<WebProject.Models.Event>
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<h2>Admin Panel</h2>
+
+<h3>Total Events: @ViewBag.TotalEvent</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>EventName</th>
+                <th>EventOrganizer</th>
+                <th>EventCategory</th>
+                <th>Event Date</th>
+                <th>Event Details</th>
+                <th>Event Address</th>
+               
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.firstname)
+                        @Html.DisplayFor(modelItem => item.User.lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventcategory)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventdetails)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.eventvenue)
+                        @Html.DisplayFor(modelItem => item.eventcity)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Comments", "Comment", new { id = item.eventid }) |
+                        @Html.ActionLink("Delete", "Delete", new {id = item.eventid}) |
+                        @Html.ActionLink("Map", "Map", new
+                        {
+                            venue = item.eventvenue,
+                            city = item.eventcity,
+                            id = item.eventid
+                            
+                        })
+
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-6">
+        
+    </div>
+
+</div>

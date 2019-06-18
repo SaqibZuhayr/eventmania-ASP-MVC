@@ -1,0 +1,57 @@
+﻿@using WebProject.Models
+@model IEnumerable<WebProject.Models.User>
+@{
+    ViewBag.Title = "Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<h2>Admin Panel</h2>
+
+<h3>Total Users: @ViewBag.TotalUsers</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Userid</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Name</th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.userid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstname)
+                        @Html.DisplayFor(modelItem => item.lastname)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id=item.userid })|
+                        @Html.ActionLink("User Events", "UserEvents", new { id=item.userid })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    
+</div>

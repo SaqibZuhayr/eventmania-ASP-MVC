@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EventdbModelStoreContainer" CdmEntityContainer="EventdbEntities2">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="EventdbModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="adminname" ColumnName="adminname" />
+          <ScalarProperty Name="adminpassword" ColumnName="adminpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="EventdbModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="commentid" ColumnName="commentid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="Report" ColumnName="Report" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="EventdbModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="eventname" ColumnName="eventname" />
+          <ScalarProperty Name="eventdetails" ColumnName="eventdetails" />
+          <ScalarProperty Name="eventvenue" ColumnName="eventvenue" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="eventcity" ColumnName="eventcity" />
+          <ScalarProperty Name="eventcategory" ColumnName="eventcategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maps">
+      <EntityTypeMapping TypeName="EventdbModel.Map">
+        <MappingFragment StoreEntitySet="Map">
+          <ScalarProperty Name="mapid" ColumnName="mapid" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="coorlat" ColumnName="coorlat" />
+          <ScalarProperty Name="coorlong" ColumnName="coorlong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="EventdbModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="reportId" ColumnName="reportId" />
+          <ScalarProperty Name="eventid" ColumnName="eventid" />
+          <ScalarProperty Name="report1" ColumnName="report" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="EventdbModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="repassword" ColumnName="repassword" />
+          <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
